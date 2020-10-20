@@ -8,7 +8,9 @@
     flex-direction: column;
 }
 .back-to-main {
-    color: #F2055C;
+    /* color: #F2055C; */
+    color: #FFFFFF;
+    -webkit-text-stroke: 2px black;
     /* position: relative;
     top: 35px; */
     margin-top: 35px;
@@ -16,6 +18,7 @@
 }
 .back-to-main h3:hover {
     text-decoration: underline;
+    text-decoration-color: #FFFFFF;
 }
 .instructions-list { 
     color: white;
