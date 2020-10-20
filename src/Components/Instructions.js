@@ -14,8 +14,7 @@ function Instructions() {
     <div className="container-fluid instructions">
       <div className="row">
         <div className="col back-to-main">
-          <h3 className="back-main-menu"
-            onClick={evt => handleScreenChange('landing')}>BACK TO MAIN MENU</h3>
+          <h3 onClick={evt => handleScreenChange('landing')}>BACK TO MAIN MENU</h3>
         </div>
       </div>
       <div className="row text-center flex-grow-1">
