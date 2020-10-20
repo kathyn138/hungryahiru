@@ -19,13 +19,27 @@ function App() {
   if (currentScreen === 'landing') {
     console.log('rerender start');
     return (
-      <div>
-        <button type="button" className="btn btn-primary" onClick={evt => handleScreenChange('start')}>Start</button>
-        <button type="button" className="btn btn-primary" onClick={evt => handleScreenChange('instructions')}>Instructions</button>
+      <div className="container-fluid landing">
+        <div className="row flex-grow-1">
+          <div className="col title">
+            <h1>HUNGRY AHIRU</h1>
+          </div>
+        </div>
+        <div className="row flex-grow-1">
+          <div className="col landing-options">
+            <ol>
+              <li onClick={evt => handleScreenChange('start')}>
+                START GAME
+                </li>
+              <li onClick={evt => handleScreenChange('instructions')}>
+                INSTRUCTIONS
+                </li>
+            </ol>
+          </div>
+        </div>
       </div>
     );
   } else if (currentScreen === 'instructions') {
-    console.log('rerender at instructions');
     return (
       <Instructions />
     );
@@ -34,15 +48,6 @@ function App() {
       <Game />
     );
   }
-
-  // return (
-  //   <div>
-  //   {console.log('rendering')}
-  //    <button type="button" className="btn btn-primary" onClick={evt => change('start')}>Start</button>
-  //      <button type="button" className="btn btn-primary" onClick={evt => change('instructions')}>Instructions</button>
-  //   {currentScreen ? 'ok' : 'no'}
-  //    </div>
-  // );
 }
 
 export default App;
