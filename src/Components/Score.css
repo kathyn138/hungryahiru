@@ -1,0 +1,7 @@
+.score {
+    color: #FFFFFF;
+    -webkit-text-stroke: 2px black;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
