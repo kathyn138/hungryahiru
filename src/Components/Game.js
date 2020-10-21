@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 import { changeScreen } from '../Actions/screens';
+import Ahiru from './Ahiru';
+import Score from './Score';
+import Fork from './Fork';
+import './Game.css';
 
 function Game() {
   const dispatch = useDispatch();
@@ -10,9 +14,10 @@ function Game() {
   }
 
   return (
-    <div>
-      "game"
-      <button type="button" className="btn btn-primary" onClick={evt => handleScreenChange('landing')}>Back</button>
+    <div className="game">
+      <Score />
+      {/* <Fork /> */}
+      <Ahiru />
     </div>
   );
 }
