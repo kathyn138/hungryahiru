@@ -9,8 +9,6 @@ function App() {
   const dispatch = useDispatch();
   let currentScreen = useSelector(st => st.screen.name);
 
-  console.log('changing screen to', currentScreen);
-
   function handleScreenChange(name) {
     dispatch(changeScreen(name));
   }
