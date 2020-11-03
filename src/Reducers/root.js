@@ -1,5 +1,5 @@
-import ahiru from './ahiru';
+import forks from './forks';
 import screen from './screens';
 import { combineReducers } from 'redux';
 
-export default combineReducers({ ahiru, screen });
+export default combineReducers({ forks, screen });
