@@ -9,7 +9,7 @@ export default function rootReducer(state = {}, action) {
     let newState = { ...state };
     delete newState[action.forkNumber];
     
-    return { newState };
+    return newState;
   }
 
   return state;
