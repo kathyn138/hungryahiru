@@ -39,6 +39,8 @@
   background-size: auto 100%;
   /*adjust s value for speed*/
   animation: animated-game-bg 150s linear infinite;
+  
+  overflow: hidden;
 }
 /* delay when animation restarts */
 @keyframes animated-game-bg {
