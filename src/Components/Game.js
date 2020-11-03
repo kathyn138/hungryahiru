@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from 'uuid';
 import { changeScreen } from '../Actions/screens';
-import { shootFork } from '../Actions/forks';
+import { shootFork, moveFork, removeFork } from '../Actions/forks';
 import Ahiru from './Ahiru';
 import Score from './Score';
 import Fork from './Fork';
@@ -19,6 +19,19 @@ function Game() {
     dispatch(shootFork(num, pos));
   }
 
+  function handleMoveFork(num, pos) {
+    // yes vw changes as viewport changes
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+    if (pos < vw) {
+      console.log('move')
+      dispatch(moveFork(num, pos));
+    } else {
+      console.log('remove')
+      dispatch(removeFork(num, pos));
+    }
+  }
+
   // custom hook for detecting key press 
   function useKeyPress(targetKey) {
     function handlePress({ key }) {
@@ -26,7 +39,7 @@ function Game() {
         setJump(true);
       }
       if (key === targetKey && targetKey === ' ') {
-        handleShootFork(uuid(), 0);
+        handleShootFork(uuid(), 120);
       }
     }
 
@@ -58,17 +71,16 @@ function Game() {
   // }
 
   let reformattedForks = [];
-  console.log('currF', currentForks)
 
   for (let fork of Object.keys(currentForks)) {
     let currFork = {'forkNumber': fork, 'forkPosition': currentForks[fork]};
     reformattedForks.push(currFork);
   }
-
+  console.log('reformF', reformattedForks);
   return (
     <div className="game">
       <Score />
-      {reformattedForks.map((fork) => <Fork key={fork.forkNumber} />)}
+      {reformattedForks.map((fork) => <Fork key={fork.forkNumber} moveFork={(num, pos) => handleMoveFork(num, pos)} forkData={fork} />)}
       <Ahiru jump={jump} />
     </div>
   );

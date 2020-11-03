@@ -1,5 +1,9 @@
-.fork {
+.fork-container {
     position: absolute;
-    top: 400px;
-    left: 200px;
+    top: 75%;
+    left: 120px;
+}
+.fork-img {
+    height: 30px;
+    width: auto;
 }
