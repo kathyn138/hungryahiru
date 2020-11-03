@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from 'uuid';
-import { changeScreen } from '../Actions/screens';
+// import { changeScreen } from '../Actions/screens';
 import { shootFork, moveFork, removeFork } from '../Actions/forks';
+import { addDessert, moveDessert, removeDessert } from '../Actions/desserts';
 import Ahiru from './Ahiru';
 import Score from './Score';
 import Fork from './Fork';
+import Dessert from './Dessert';
 import './Game.css';
 
 function Game() {
   const dispatch = useDispatch();
   const [jump, setJump] = useState(false);
   let currentForks = useSelector(st => st.forks);
+  let currentDesserts = useSelector(st => st.desserts);
   const checkJump = useKeyPress('ArrowUp');
   const checkSpace = useKeyPress(' ');
 
@@ -21,15 +24,48 @@ function Game() {
 
   function handleMoveFork(num, pos) {
     // yes vw changes as viewport changes
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-
-    if (pos < vw) {
-      console.log('move')
+    const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    // chose 300 indiscriminately :(
+    if (pos < viewportWidth - 300) {
       dispatch(moveFork(num, pos));
     } else {
-      console.log('remove')
       dispatch(removeFork(num, pos));
     }
+  }
+
+  let reformattedForks = [];
+
+  for (let fork of Object.keys(currentForks)) {
+    let currFork = { 'forkNumber': fork, 'forkPosition': currentForks[fork] };
+    reformattedForks.push(currFork);
+  }
+
+  function handleAddDessert(num, pos) {
+    dispatch(addDessert(num, pos));
+  }
+
+  function handleMoveDessert(num, pos) {
+    if (pos > 0) {
+      dispatch(moveDessert(num, pos));
+    } else {
+      console.log('removed dessert');
+      dispatch(removeDessert(num, pos));
+    }
+  }
+
+  // useEffect(() => {
+  //   const moveInterval = setTimeout(() => {
+  //     const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  //   handleAddDessert(uuid(), viewportWidth);
+  //   }, 1000);
+  //   return () => clearTimeout(moveInterval);
+  // });
+
+  let reformattedDesserts = [];
+
+  for (let dessert of Object.keys(currentDesserts)) {
+    let currDessert = { 'dessertNumber': dessert, 'dessertPosition': currentDesserts[dessert] };
+    reformattedDesserts.push(currDessert);
   }
 
   // custom hook for detecting key press 
@@ -70,17 +106,16 @@ function Game() {
   //   dispatch(changeScreen(name));
   // }
 
-  let reformattedForks = [];
 
-  for (let fork of Object.keys(currentForks)) {
-    let currFork = {'forkNumber': fork, 'forkPosition': currentForks[fork]};
-    reformattedForks.push(currFork);
-  }
-  console.log('reformF', reformattedForks);
   return (
     <div className="game">
       <Score />
-      {reformattedForks.map((fork) => <Fork key={fork.forkNumber} moveFork={(num, pos) => handleMoveFork(num, pos)} forkData={fork} />)}
+      {reformattedForks.map((fork) => <Fork key={fork.forkNumber}
+        moveFork={(num, pos) => handleMoveFork(num, pos)}
+        forkData={fork} />)}
+      {reformattedDesserts.map((dessert) => <Dessert key={dessert.dessertNumber}
+        moveDessert={(num, pos) => handleMoveDessert(num, pos)}
+        dessertData={dessert} />)}
       <Ahiru jump={jump} />
     </div>
   );

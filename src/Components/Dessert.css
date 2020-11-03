@@ -1,0 +1,9 @@
+.dessert-container {
+    position: absolute;
+    top: 75%;
+    left: 98%;
+}
+.dessert-img {
+    height: 50px;
+    width: auto;
+}
