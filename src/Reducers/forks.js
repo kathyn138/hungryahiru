@@ -1,4 +1,3 @@
-
 export default function rootReducer(state = {}, action) {
 
   if (action.type === "SHOOT_FORK") {

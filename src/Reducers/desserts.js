@@ -1,4 +1,3 @@
-
 export default function rootReducer(state = { 0: 98 }, action) {
 
   if (action.type === "ADD_DESSERT") {
