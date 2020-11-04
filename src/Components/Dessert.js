@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from "react-redux";
 import './Dessert.css';
 
 function Dessert(props) {
@@ -12,7 +11,6 @@ function Dessert(props) {
     return () => clearInterval(moveInterval);
   });
 
-  console.log('pos', dessertPosition + '%');
 return (
   <div className="dessert-container" style = {{ left: dessertPosition + '%' }}>
     <img src="https://cdn.discordapp.com/attachments/709285942430531650/773312535242997787/cake1.png"
