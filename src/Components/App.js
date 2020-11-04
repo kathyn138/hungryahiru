@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeScreen } from '../Actions/screens';
 import Instructions from './Instructions';
 import Game from './Game';
+import DessertContainer from './DessertContainer';
+import VegetableContainer from './VegetableContainer';
 import './App.css';
 
 function App() {
@@ -43,7 +45,11 @@ function App() {
     );
   } else {
     return (
-      <Game />
+      <React.Fragment>
+        <DessertContainer />
+        <VegetableContainer />
+        <Game />
+      </React.Fragment>
     );
   }
 }
