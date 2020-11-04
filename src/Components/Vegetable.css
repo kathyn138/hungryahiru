@@ -1,0 +1,11 @@
+.vegetable-container {
+    position: absolute;
+    top: 75%;
+    left: 98%;
+    z-index: 1;
+}
+.vegetable-img {
+    height: 50px;
+    width: auto;
+    z-index: 1;
+}
