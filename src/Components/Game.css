@@ -39,6 +39,8 @@
   background-size: auto 100%;
   /*adjust s value for speed*/
   animation: animated-game-bg 150s linear infinite;
+  /* speeding up does make fork look smoother but i get motion sickness */
+
   
   overflow: hidden;
 }
