@@ -21,9 +21,9 @@ function Game() {
 
   function handleMoveFork(num, pos) {
     // yes vw changes as viewport changes
-    const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    // const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     // chose 300 indiscriminately :(
-    if (pos < viewportWidth - 300) {
+    if (pos < 100) {
       dispatch(moveFork(num, pos));
     } else {
       dispatch(removeFork(num, pos));
@@ -44,7 +44,7 @@ function Game() {
         setJump(true);
       }
       if (key === targetKey && targetKey === ' ') {
-        handleShootFork(uuid(), 120);
+        handleShootFork(uuid(), 10);
       }
     }
 

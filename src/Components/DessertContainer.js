@@ -12,12 +12,15 @@ function DessertContainer() {
     dispatch(addDessert(num, pos));
   }
 
+
   useEffect(() => {
     const addInterval = setInterval(() => {
       handleAddDessert(uuid(), 98);
-    }, 1000);
+      handleAddDessert(uuid(), 110);
+    }, 500);
     return () => clearInterval(addInterval);
   });
+
 
   function handleMoveDessert(num, pos) {
     if (pos > 0) {
