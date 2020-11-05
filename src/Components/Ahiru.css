@@ -1,6 +1,7 @@
 .ahiru-container {
     margin-top: 65vh;
     margin-left: 30px;
+    z-index: 2;
 }
 .ahiru-walk-gif {
     height: 100px;
@@ -9,7 +10,6 @@
 .ahiru-jump {
     height: 100px;
     width: auto;
-    /* margin-top: -50px; */
     animation: jump 1.2s;
 }
 @keyframes jump {

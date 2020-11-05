@@ -2,6 +2,7 @@
     position: absolute;
     top: 75%;
     left: 98%;
+    z-index: 1;
 }
 .dessert-img {
     height: 50px;

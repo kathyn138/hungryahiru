@@ -2,6 +2,7 @@
     position: absolute;
     top: 75%;
     left: 120px;
+    z-index: 2;
 }
 .fork-img {
     height: 30px;
