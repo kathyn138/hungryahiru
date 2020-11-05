@@ -5,6 +5,7 @@ import Instructions from './Instructions';
 import Game from './Game';
 import DessertContainer from './DessertContainer';
 import VegetableContainer from './VegetableContainer';
+import CollisionContainer from './CollisionContainer';
 import './App.css';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
   } else {
     return (
       <React.Fragment>
+        <CollisionContainer />
         <DessertContainer />
         <VegetableContainer />
         <Game />
