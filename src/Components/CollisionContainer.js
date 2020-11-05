@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFork } from '../Actions/forks';
 import { removeDessert } from '../Actions/desserts';
 import { increaseScore } from '../Actions/score';
+import { changeScreen } from '../Actions/screens';
 
 function CollisionContainer() {
   const dispatch = useDispatch();
 
   let currentForks = useSelector(st => st.forks);
   let currentDesserts = useSelector(st => st.desserts);
+  let currentVegetables = useSelector(st => st.vegetables);
 
 
   // rn it keeps running 
@@ -23,7 +25,13 @@ function CollisionContainer() {
     }
   }
 
-
+  for (let fork in currentForks) {
+    for (let vegetable in currentVegetables) {
+      if (currentForks[fork] >= currentVegetables[vegetable]) {
+        dispatch(changeScreen('end'));
+      }
+    }
+  }
 
   return (<React.Fragment></React.Fragment>);
 }

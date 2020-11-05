@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeScreen } from '../Actions/screens';
 import Instructions from './Instructions';
 import Game from './Game';
+import EndScreen from './EndScreen';
 import DessertContainer from './DessertContainer';
 import VegetableContainer from './VegetableContainer';
 import CollisionContainer from './CollisionContainer';
@@ -29,7 +30,7 @@ function App() {
         <div className="row flex-grow-1">
           <div className="col landing-options">
             <ol>
-              <li onClick={evt => handleScreenChange('start')}>
+              <li onClick={evt => handleScreenChange('game')}>
                 START GAME
                 </li>
               <li onClick={evt => handleScreenChange('instructions')}>
@@ -44,7 +45,7 @@ function App() {
     return (
       <Instructions />
     );
-  } else {
+  } else if (currentScreen === 'game') {
     return (
       <React.Fragment>
         <CollisionContainer />
@@ -52,6 +53,10 @@ function App() {
         <VegetableContainer />
         <Game />
       </React.Fragment>
+    );
+  } else {
+    return (
+      <EndScreen />
     );
   }
 }
