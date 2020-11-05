@@ -1,4 +1,4 @@
-export default function rootReducer(state = { 0: 98 }, action) {
+export default function rootReducer(state = {}, action) {
 
   if (action.type === "ADD_DESSERT") {
     return { ...state, [action.dessertNumber]: action.dessertPosition };
