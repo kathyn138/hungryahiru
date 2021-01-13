@@ -22,11 +22,10 @@ function Game() {
   }
 
   function handleMoveFork(num, pos) {
-    // yes vw changes as viewport changes
     // const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    // chose 300 indiscriminately :(
+
     if (pos < 100) {
-      dispatch(moveFork(num, pos));
+      dispatch(moveFork(num, pos + 10));
     } else {
       dispatch(removeFork(num, pos));
     }
