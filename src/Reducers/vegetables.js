@@ -9,6 +9,8 @@ export default function rootReducer(state = {}, action) {
     delete newState[action.vegetableNumber];
 
     return newState;
+  } else if (action.type === "RESET_VEGETABLE") {
+    return {};
   }
 
   return state;
