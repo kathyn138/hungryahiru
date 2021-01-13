@@ -9,6 +9,8 @@ export default function rootReducer(state = {}, action) {
     delete newState[action.forkNumber];
     
     return newState;
+  } else if (action.type === "RESET_FORK") {
+    return {};
   }
 
   return state;

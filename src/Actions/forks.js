@@ -1,4 +1,4 @@
-import { SHOOT_FORK, MOVE_FORK, REMOVE_FORK } from './types';
+import { SHOOT_FORK, MOVE_FORK, REMOVE_FORK, RESET_FORK } from './types';
 
 export function shootFork(forkNumber, forkPosition) {
   return function (dispatch) {
@@ -26,6 +26,14 @@ export function removeFork(forkNumber, forkPosition) {
       type: REMOVE_FORK, 
       forkNumber, 
       forkPosition
+    });
+  };
+}
+
+export function resetFork() {
+  return function(dispatch) {
+    return dispatch({
+      type: RESET_FORK
     });
   };
 }
