@@ -1,4 +1,4 @@
-import { ADD_DESSERT, MOVE_DESSERT, REMOVE_DESSERT } from './types';
+import { ADD_DESSERT, MOVE_DESSERT, REMOVE_DESSERT, RESET_DESSERT } from './types';
 
 export function addDessert(dessertNumber, dessertPosition) {
   return function (dispatch) {
@@ -26,6 +26,14 @@ export function removeDessert(dessertNumber, dessertPosition) {
       type: REMOVE_DESSERT,
       dessertNumber,
       dessertPosition
+    });
+  };
+}
+
+export function resetDessert() {
+  return function(dispatch) {
+    return dispatch({
+      type: RESET_DESSERT
     });
   };
 }

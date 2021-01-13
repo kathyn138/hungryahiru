@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { changeScreen } from '../Actions/screens';
+import { resetDessert } from '../Actions/desserts';
+import { resetFork } from '../Actions/forks';
 import { resetScore } from '../Actions/score';
+import { resetVegetable } from '../Actions/vegetables';
 import './EndScreen.css';
 
 function EndScreen() {
@@ -10,6 +13,9 @@ function EndScreen() {
 
   function handleResetGame() {
     dispatch(changeScreen('landing'));
+    dispatch(resetDessert());
+    dispatch(resetFork());
+    dispatch(resetVegetable());
     dispatch(resetScore());
   }
 

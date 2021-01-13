@@ -9,6 +9,8 @@ export default function rootReducer(state = {}, action) {
     delete newState[action.dessertNumber];
 
     return newState;
+  } else if (action.type === "RESET_DESSERT") {
+    return {};
   }
 
   return state;
