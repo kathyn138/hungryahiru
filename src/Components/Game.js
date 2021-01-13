@@ -12,6 +12,8 @@ function Game() {
   const dispatch = useDispatch();
   const [jump, setJump] = useState(false);
   let currentForks = useSelector(st => st.forks);
+  // chrome console detects checkJump and checkSpace as not used
+  // actually needed for jump and shoot
   const checkJump = useKeyPress('ArrowUp');
   const checkSpace = useKeyPress(' ');
 
