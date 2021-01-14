@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { removeFork } from '../Actions/forks';
 import { removeDessert } from '../Actions/desserts';
@@ -15,23 +15,27 @@ function CollisionContainer() {
 
   // rn it keeps running 
   // investigate why
-  for (let fork in currentForks) {
-    for (let dessert in currentDesserts) {
-      if (currentForks[fork] >= currentDesserts[dessert]) {
-        dispatch(removeDessert(dessert, currentDesserts[dessert]));
-        dispatch(removeFork(fork, currentForks[fork]));
-        dispatch(increaseScore());
-      }
-    }
-  }
+  // https://stackoverflow.com/questions/62336340/cannot-update-a-component-while-rendering-a-different-component-warning
+  useEffect(() => {
 
-  for (let fork in currentForks) {
-    for (let vegetable in currentVegetables) {
-      if (currentForks[fork] >= currentVegetables[vegetable]) {
-        dispatch(changeScreen('end'));
+    for (let fork in currentForks) {
+      for (let dessert in currentDesserts) {
+        if (currentForks[fork] >= currentDesserts[dessert]) {
+          dispatch(removeDessert(dessert, currentDesserts[dessert]));
+          dispatch(removeFork(fork, currentForks[fork]));
+          dispatch(increaseScore());
+        }
       }
     }
-  }
+  
+    for (let fork in currentForks) {
+      for (let vegetable in currentVegetables) {
+        if (currentForks[fork] >= currentVegetables[vegetable]) {
+          dispatch(changeScreen('end'));
+        }
+      }
+    }
+  })
 
   return (<React.Fragment></React.Fragment>);
 }
