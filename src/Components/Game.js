@@ -56,12 +56,13 @@ function Game() {
           () => setJump(false), 900);
       }
 
-      return () => clearTimeout(jumpTimer);
+      return clearTimeout(jumpTimer);
     }
 
     useEffect(() => {
       window.addEventListener('keydown', handlePress);
       window.addEventListener('keyup', handleRelease);
+
 
       return () => {
         window.removeEventListener('keydown', handlePress);
