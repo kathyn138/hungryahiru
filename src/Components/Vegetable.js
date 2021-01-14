@@ -6,7 +6,7 @@ function Vegetable(props) {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
-      props.moveVegetable(vegetableNumber, vegetablePosition);
+      props.moveVegetable(vegetableNumber, vegetablePosition - 7);
     }, 1000);
     return () => clearInterval(moveInterval);
   });
