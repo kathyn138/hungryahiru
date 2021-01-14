@@ -16,7 +16,7 @@ function DessertContainer() {
   useEffect(() => {
     const addInterval = setInterval(() => {
       handleAddDessert(uuid(), 98);
-      handleAddDessert(uuid(), 110);
+      // handleAddDessert(uuid(), 110);
     }, 500);
     return () => clearInterval(addInterval);
   });

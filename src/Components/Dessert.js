@@ -6,8 +6,8 @@ function Dessert(props) {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
-      props.moveDessert(dessertNumber, dessertPosition - 10);
-    }, 400);
+      props.moveDessert(dessertNumber, dessertPosition - .16);
+    }, 28);
 
     return () => clearInterval(moveInterval);
   });
