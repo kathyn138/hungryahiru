@@ -33,18 +33,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: url("https://cdn.discordapp.com/attachments/709285942430531650/768264302355546122/gamebackground.png");
-  background-repeat: repeat;
+  background: url("https://cdn.discordapp.com/attachments/709643259789705317/799451996356083712/Omori_pixel_art-1977023.jpg");
+  /* background-repeat: repeat; */
   background-position: 0 0;
   background-size: auto 100%;
-  /*adjust s value for speed*/
-  animation: animated-game-bg 150s linear infinite;
-  /* speeding up does make fork look smoother but i get motion sickness */
-
-  
   overflow: hidden;
+  
+  /* animation: animated-game-bg 117s linear infi nite; */
 }
-/* delay when animation restarts */
+
 @keyframes animated-game-bg {
   from {
     background-position: 100% 0;
