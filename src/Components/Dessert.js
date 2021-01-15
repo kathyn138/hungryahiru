@@ -1,16 +1,29 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { addDessert, moveDessert, removeDessert } from '../Actions/desserts';
+
 import './Dessert.css';
 
 function Dessert(props) {
+  const dispatch = useDispatch();
   let { dessertNumber, dessertPosition } = props.dessertData;
+
+  function handleMoveDessert(num, pos) {
+    if (pos > 0) {
+      dispatch(moveDessert(num, pos));
+    } else {
+      dispatch(removeDessert(num, pos));
+    }
+  }
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
-      props.moveDessert(dessertNumber, dessertPosition - .16);
-    }, 28);
+      handleMoveDessert(dessertNumber, dessertPosition - .30);
+    }, 30);
 
     return () => clearInterval(moveInterval);
   });
+
 
   return (
     <div className="dessert-container" style={{ left: dessertPosition + '%' }}>

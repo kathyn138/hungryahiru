@@ -16,19 +16,19 @@ function DessertContainer() {
   useEffect(() => {
     const addInterval = setInterval(() => {
       handleAddDessert(uuid(), 98);
-      // handleAddDessert(uuid(), 110);
-    }, 500);
+      handleAddDessert(uuid(), 120);
+    }, 1000);
     return () => clearInterval(addInterval);
   });
 
 
-  function handleMoveDessert(num, pos) {
-    if (pos > 0) {
-      dispatch(moveDessert(num, pos));
-    } else {
-      dispatch(removeDessert(num, pos));
-    }
-  }
+  // function handleMoveDessert(num, pos) {
+  //   if (pos > 0) {
+  //     dispatch(moveDessert(num, pos));
+  //   } else {
+  //     dispatch(removeDessert(num, pos));
+  //   }
+  // }
 
   let reformattedDesserts = [];
 
@@ -40,7 +40,7 @@ function DessertContainer() {
   return (
     <React.Fragment>
       {reformattedDesserts.map((dessert) => <Dessert key={dessert.dessertNumber}
-        moveDessert={(num, pos) => handleMoveDessert(num, pos)}
+        // moveDessert={(num, pos) => handleMoveDessert(num, pos)}
         dessertData={dessert} />)}
     </React.Fragment>
   );
