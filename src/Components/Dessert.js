@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { addDessert, moveDessert, removeDessert } from '../Actions/desserts';
+import { useDispatch } from "react-redux";
+import { moveDessert, removeDessert } from '../Actions/desserts';
 
 import './Dessert.css';
 
