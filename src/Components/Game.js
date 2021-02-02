@@ -43,6 +43,7 @@ function Game() {
     function handlePress({ key }) {
       if (key === targetKey && targetKey === 'ArrowUp') {
         setJump(true);
+
       }
       if (key === targetKey && targetKey === ' ') {
         handleShootFork(uuid(), 10);
@@ -51,12 +52,11 @@ function Game() {
 
     function handleRelease({ key }) {
       let jumpTimer;
-      if (key === targetKey) {
-        jumpTimer = setTimeout(
-          () => setJump(false), 900);
+      if (key === targetKey && targetKey === 'ArrowUp') {
+        jumpTimer = setTimeout(() => setJump(false), 800);
       }
-
-      return clearTimeout(jumpTimer);
+      
+      return () => clearTimeout(jumpTimer);
     }
 
     useEffect(() => {
