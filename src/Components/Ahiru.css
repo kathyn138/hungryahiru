@@ -11,7 +11,7 @@
 .ahiru-jump {
     height: 100px;
     width: auto;
-    animation: jump 1.2s;
+    animation: jump 1.2s infinite;
 }
 @keyframes jump {
     0% {margin-top: 0px;}
