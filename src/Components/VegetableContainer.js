@@ -15,7 +15,7 @@ function VegetableContainer() {
   useEffect(() => {
     const addInterval = setInterval(() => {
       handleAddVegetable(uuid(), 98);
-    }, 1800);
+    }, 2500);
     return () => clearInterval(addInterval);
   });
 
