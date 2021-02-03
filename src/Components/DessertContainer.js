@@ -12,7 +12,6 @@ function DessertContainer() {
     dispatch(addDessert(num, pos));
   }
 
-
   useEffect(() => {
     const addInterval = setInterval(() => {
       handleAddDessert(uuid(), 98);
@@ -23,12 +22,16 @@ function DessertContainer() {
   let reformattedDesserts = [];
 
   for (let dessert of Object.keys(currentDesserts)) {
-    let currDessert = { 'dessertNumber': dessert, 'dessertPosition': currentDesserts[dessert] };
+    let currDessert = {
+      'dessertNumber': dessert,
+      'dessertPosition': currentDesserts[dessert]
+    };
     reformattedDesserts.push(currDessert);
   }
 
   return (
     <React.Fragment>
+      {console.log('dc')}
       {reformattedDesserts.map((dessert) => <Dessert key={dessert.dessertNumber}
         dessertData={dessert} />)}
     </React.Fragment>
