@@ -14,7 +14,7 @@ function DessertContainer() {
 
   useEffect(() => {
     const addInterval = setInterval(() => {
-      handleAddDessert(uuid(), 98);
+      handleAddDessert(uuid(), 100);
     }, 1000);
     return () => clearInterval(addInterval);
   });
@@ -31,7 +31,6 @@ function DessertContainer() {
 
   return (
     <React.Fragment>
-      {console.log('dc')}
       {reformattedDesserts.map((dessert) => <Dessert key={dessert.dessertNumber}
         dessertData={dessert} />)}
     </React.Fragment>
