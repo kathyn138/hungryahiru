@@ -31,7 +31,7 @@ export function removeDessert(dessertNumber, dessertPosition) {
 }
 
 export function resetDessert() {
-  return function(dispatch) {
+  return function (dispatch) {
     return dispatch({
       type: RESET_DESSERT
     });
