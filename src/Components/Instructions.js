@@ -24,7 +24,6 @@ function Instructions() {
             <li>UP ARROW TO JUMP</li>
           </ol>
         </div>
-
       </div>
     </div>
   );

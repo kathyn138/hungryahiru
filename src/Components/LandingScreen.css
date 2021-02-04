@@ -1,49 +1,36 @@
 .landing {
-  background-image: url("https://cdn.discordapp.com/attachments/709643259789705317/767913830314672157/room.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  color: #FFFFFF;
-  -webkit-text-stroke: 2px black;
-  display: flex;
+    background-image: url("https://cdn.discordapp.com/attachments/709643259789705317/767913830314672157/room.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    color: #FFFFFF;
+    -webkit-text-stroke: 2px black;
+    display: flex;
     flex-direction: column;
 }
 .title {
-  display: flex;
-  /* vertical center */
-  align-items: center; 
-  /* horizontal center */
-  justify-content: center; 
+    display: flex;
+    /* vertical center */
+    align-items: center;
+    /* horizontal center */
+    justify-content: center;
 }
 .landing-options {
-  display: flex;
-  /* vertical center */
-  align-items: center; 
-  /* horizontal center */
-  justify-content: center; 
-  font-size: 30px;
+    display: flex;
+    /* vertical center */
+    align-items: center;
+    /* horizontal center */
+    justify-content: center;
+    font-size: 30px;
 }
 .landing-options ol {
-  list-style: none;
+    list-style: none;
 }
 .landing-options li:hover {
-  text-decoration: underline;
-  text-decoration-color: #FFFFFF;
+    text-decoration: underline;
+    text-decoration-color: #FFFFFF;
 }
 .landing-options li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
-/* code for triangle to appear on link hover */
-/* .arrow-right {
-  width: 0; 
-  height: 0; 
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #FFFFFF;
-  display: inline-block;
-  position:relative;
-  left: -20px;
-  top: -5px;
-  display: none;
-} */
