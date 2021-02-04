@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { removeFork } from '../Actions/forks';
-import { removeDessert } from '../Actions/desserts';
-import { increaseScore } from '../Actions/score';
 import { changeScreen } from '../Actions/screens';
+import { increaseScore } from '../Actions/score';
+import { removeDessert } from '../Actions/desserts';
+import { removeFork } from '../Actions/forks';
 
 function CollisionContainer() {
   const dispatch = useDispatch();
@@ -13,11 +13,13 @@ function CollisionContainer() {
   let currentVegetables = useSelector(st => st.vegetables);
 
 
-  // rn it keeps running 
-  // investigate why
+  // used to have this bug 
   // https://stackoverflow.com/questions/62336340/cannot-update-a-component-while-rendering-a-different-component-warning
+  // leaving here in case needed for future reference 
+  
   useEffect(() => {
-
+    // check if fork and dessert collision
+    // if collided, remove dessert and fork and increment score
     for (let fork in currentForks) {
       for (let dessert in currentDesserts) {
         if (currentForks[fork] >= currentDesserts[dessert]) {
@@ -27,7 +29,9 @@ function CollisionContainer() {
         }
       }
     }
-  
+
+    // check for fork and vegetable collision
+    // if collided, end the game
     for (let fork in currentForks) {
       for (let vegetable in currentVegetables) {
         if (currentForks[fork] >= currentVegetables[vegetable]) {
@@ -35,7 +39,7 @@ function CollisionContainer() {
         }
       }
     }
-  })
+  });
 
   return (<React.Fragment></React.Fragment>);
 }
