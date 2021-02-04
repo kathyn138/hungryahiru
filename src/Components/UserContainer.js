@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from 'uuid';
-// import { changeScreen } from '../Actions/screens';
 import { shootFork } from '../Actions/forks';
 import Ahiru from './Ahiru';
-import Score from './Score';
 import Fork from './Fork';
-import './UserContainer.css';
+import Score from './Score';
 
 function UserContainer() {
   const dispatch = useDispatch();
