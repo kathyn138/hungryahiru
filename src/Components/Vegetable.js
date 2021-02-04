@@ -7,6 +7,9 @@ function Vegetable(props) {
   const dispatch = useDispatch();
   let { vegetableNumber, vegetablePosition } = props.vegetableData;
 
+  // check vegetable coordinates each time the vegetable moves
+  // vegetable moves from right to left
+  // remove vegetable if out of bounds (<= 0)
   function handleMoveVegetable(num, pos) {
     if (pos > 0) {
       dispatch(moveVegetable(num, pos));

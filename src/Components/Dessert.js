@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { moveDessert, removeDessert } from '../Actions/desserts';
-
 import './Dessert.css';
 
 function Dessert(props) {
   const dispatch = useDispatch();
   let { dessertNumber, dessertPosition } = props.dessertData;
 
+  // check dessert coordinates each time the dessert moves
+  // dessert moves from right to left
+  // remove dessert if out of bounds (<= 0)
   function handleMoveDessert(num, pos) {
     if (pos > 0) {
       dispatch(moveDessert(num, pos));

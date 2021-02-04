@@ -6,12 +6,13 @@ import Vegetable from './Vegetable';
 
 function VegetableContainer() {
   const dispatch = useDispatch();
-  let currentVegetables = useSelector(st => st.vegetables);
 
   function handleAddVegetable(num, pos) {
     dispatch(addVegetable(num, pos));
   }
 
+  // add vegetable at x position 100 
+  // timing at 2500 to not overlap with dessert start time
   useEffect(() => {
     const addInterval = setInterval(() => {
       handleAddVegetable(uuid(), 100);
@@ -19,19 +20,23 @@ function VegetableContainer() {
     return () => clearInterval(addInterval);
   });
 
-  let reformattedVegetables = [];
+  // object with vegetable IDs as keys and vegetable positions as values
+  let vegetablesFromStore = useSelector(st => st.vegetables);
 
-  for (let vegetable of Object.keys(currentVegetables)) {
+  // reformat vegetablesFromStore to map through them in return statement
+  let vegetablesForGame = [];
+
+  for (let vegetable of Object.keys(vegetablesFromStore)) {
     let currVegetable = {
       'vegetableNumber': vegetable,
-      'vegetablePosition': currentVegetables[vegetable]
+      'vegetablePosition': vegetablesFromStore[vegetable]
     };
-    reformattedVegetables.push(currVegetable);
+    vegetablesForGame.push(currVegetable);
   }
 
   return (
     <React.Fragment>
-      {reformattedVegetables.map((vegetable) => <Vegetable key={vegetable.vegetableNumber}
+      {vegetablesForGame.map((vegetable) => <Vegetable key={vegetable.vegetableNumber}
         vegetableData={vegetable} />)}
     </React.Fragment>
   );

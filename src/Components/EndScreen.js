@@ -11,6 +11,8 @@ function EndScreen() {
   const dispatch = useDispatch();
   const currScore = useSelector(st => st.score);
 
+  // resetting game resets desserts, forks, vegetables, and score
+  // also takes user back to landing screen
   function handleResetGame() {
     dispatch(changeScreen('landing'));
     dispatch(resetDessert());
