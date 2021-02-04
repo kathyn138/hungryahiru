@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { changeScreen } from '../Actions/screens';
 import Instructions from './Instructions';
-import Game from './Game';
+import UserContainer from './UserContainer';
 import EndScreen from './EndScreen';
 import DessertContainer from './DessertContainer';
 import VegetableContainer from './VegetableContainer';
@@ -51,7 +51,7 @@ function App() {
         <CollisionContainer />
         <DessertContainer />
         <VegetableContainer />
-        <Game />
+        <UserContainer />
       </React.Fragment>
     );
   } else {

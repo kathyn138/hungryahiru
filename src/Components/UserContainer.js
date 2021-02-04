@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from 'uuid';
 // import { changeScreen } from '../Actions/screens';
-import { shootFork, moveFork, removeFork } from '../Actions/forks';
+import { shootFork } from '../Actions/forks';
 import Ahiru from './Ahiru';
 import Score from './Score';
 import Fork from './Fork';
-import './Game.css';
+import './UserContainer.css';
 
-function Game() {
+function UserContainer() {
   const dispatch = useDispatch();
   const [jump, setJump] = useState(false);
-  let currentForks = useSelector(st => st.forks);
   // chrome console detects checkJump and checkSpace as not used
   // actually needed for jump and shoot
   const checkJump = useKeyPress('ArrowUp');
@@ -19,23 +18,6 @@ function Game() {
 
   function handleShootFork(num, pos) {
     dispatch(shootFork(num, pos));
-  }
-
-  function handleMoveFork(num, pos) {
-    // const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-
-    if (pos < 100) {
-      dispatch(moveFork(num, pos + 10));
-    } else {
-      dispatch(removeFork(num, pos));
-    }
-  }
-
-  let reformattedForks = [];
-
-  for (let fork of Object.keys(currentForks)) {
-    let currFork = { 'forkNumber': fork, 'forkPosition': currentForks[fork] };
-    reformattedForks.push(currFork);
   }
 
   // custom hook for detecting key press 
@@ -55,7 +37,7 @@ function Game() {
       if (key === targetKey && targetKey === 'ArrowUp') {
         jumpTimer = setTimeout(() => setJump(false), 800);
       }
-      
+
       return () => clearTimeout(jumpTimer);
     }
 
@@ -73,19 +55,25 @@ function Game() {
     return jump;
   }
 
-  // function handleScreenChange(name) {
-  //   dispatch(changeScreen(name));
-  // }
+  // object with fork IDs as keys and fork positions as values
+  let forksFromStore = useSelector(st => st.forks);
+
+  // reformat forksFromStore to map through them in return statement
+  let forksForGame = [];
+
+  for (let fork of Object.keys(forksFromStore)) {
+    let currFork = { 'forkNumber': fork, 'forkPosition': forksFromStore[fork] };
+    forksForGame.push(currFork);
+  }
 
   return (
-    <div className="game">
+    <div className="user-container">
       <Score />
-      {reformattedForks.map((fork) => <Fork key={fork.forkNumber}
-        moveFork={(num, pos) => handleMoveFork(num, pos)}
+      {forksForGame.map((fork) => <Fork key={fork.forkNumber}
         forkData={fork} />)}
       <Ahiru jump={jump} />
     </div>
   );
 }
 
-export default Game;
+export default UserContainer;
