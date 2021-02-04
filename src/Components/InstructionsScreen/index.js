@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { changeScreen } from '../Actions/screens';
-import './Instructions.css';
+import { changeScreen } from '../../Actions/screens';
+import './InstructionsScreen.css';
 
 function Instructions() {
   const dispatch = useDispatch();

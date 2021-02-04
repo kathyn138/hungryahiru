@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { moveVegetable, removeVegetable } from '../Actions/vegetables';
+import { moveVegetable, removeVegetable } from '../../Actions/vegetables';
 import './Vegetable.css';
 
 function Vegetable(props) {

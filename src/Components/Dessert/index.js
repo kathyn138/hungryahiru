@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { moveDessert, removeDessert } from '../Actions/desserts';
+import { moveDessert, removeDessert } from '../../Actions/desserts';
 import './Dessert.css';
 
 function Dessert(props) {

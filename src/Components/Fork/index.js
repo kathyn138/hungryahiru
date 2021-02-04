@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { moveFork, removeFork } from '../Actions/forks';
+import { moveFork, removeFork } from '../../Actions/forks';
 import './Fork.css';
 
 function Fork(props) {

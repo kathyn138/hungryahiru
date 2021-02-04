@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { changeScreen } from '../Actions/screens';
+import { changeScreen } from '../../Actions/screens';
 import './LandingScreen.css';
 
 function LandingScreen() {

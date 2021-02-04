@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from 'uuid';
-import { addDessert } from '../Actions/desserts';
-import Dessert from './Dessert';
+import { addDessert } from '../../Actions/desserts';
+import Dessert from '../Dessert';
 
 function DessertContainer() {
   const dispatch = useDispatch();

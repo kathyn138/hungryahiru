@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import EndScreen from './EndScreen';
-import Game from './Game';
-import Instructions from './Instructions';
+import GameScreen from './GameScreen';
+import InstructionsScreen from './InstructionsScreen';
 import LandingScreen from './LandingScreen';
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
     );
   } else if (currentScreen === 'instructions') {
     return (
-      <Instructions />
+      <InstructionsScreen />
     );
   } else if (currentScreen === 'game') {
     return (
-      <Game />
+      <GameScreen />
     );
   } else {
     return (

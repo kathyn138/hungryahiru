@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { changeScreen } from '../Actions/screens';
-import { increaseScore } from '../Actions/score';
-import { removeDessert } from '../Actions/desserts';
-import { removeFork } from '../Actions/forks';
+import { changeScreen } from '../../Actions/screens';
+import { increaseScore } from '../../Actions/score';
+import { removeDessert } from '../../Actions/desserts';
+import { removeFork } from '../../Actions/forks';
 
 function CollisionContainer() {
   const dispatch = useDispatch();

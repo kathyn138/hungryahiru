@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from 'uuid';
-import { addVegetable } from '../Actions/vegetables';
-import Vegetable from './Vegetable';
+import { addVegetable } from '../../Actions/vegetables';
+import Vegetable from '../Vegetable';
 
 function VegetableContainer() {
   const dispatch = useDispatch();
