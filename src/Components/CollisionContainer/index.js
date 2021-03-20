@@ -12,11 +12,6 @@ function CollisionContainer() {
   let currentDesserts = useSelector(st => st.desserts);
   let currentVegetables = useSelector(st => st.vegetables);
 
-
-  // used to have this bug 
-  // https://stackoverflow.com/questions/62336340/cannot-update-a-component-while-rendering-a-different-component-warning
-  // leaving here in case needed for future reference 
-  
   useEffect(() => {
     // check if fork and dessert collision
     // if collided, remove dessert and fork and increment score
